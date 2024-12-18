@@ -17,6 +17,12 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        dashboard_tab.cpp
+        dashboard_tab.h
+        motor_tab.cpp
+        motor_tab.h
+        sensor_tab.cpp
+        sensor_tab.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
