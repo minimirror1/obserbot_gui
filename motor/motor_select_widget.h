@@ -10,6 +10,10 @@ class MotorSelectWidget : public QWidget
     Q_OBJECT
 public:
     explicit MotorSelectWidget(QWidget *parent = nullptr);
+    const QList<MotorSelectBox*>& getMotorBoxes() const { return motor_boxes; }
+
+private slots:
+    void handleBoxSelection(MotorSelectBox* selected_box);
 
 protected:
     void resizeEvent(QResizeEvent* event) override;
@@ -17,7 +21,9 @@ protected:
 private:
     void loadMotorInfo();
     void updateGridLayout();
-    QVector<MotorSelectBox*> motor_boxes;
+    QList<MotorSelectBox*> motor_boxes;
+    MotorSelectBox* current_selected_box = nullptr;
+
 };
 
 #endif // MOTOR_SELECT_WIDGET_H 

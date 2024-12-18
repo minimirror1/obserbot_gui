@@ -16,6 +16,7 @@ public:
 
 signals:
     void clicked(MotorSelectBox* box);  // 클릭 시그널
+    void motorSelected(const QString& id, const QString& nickname);  // 새로운 시그널 추가
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;

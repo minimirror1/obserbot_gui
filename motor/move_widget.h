@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QTableWidget>
 #include <QHeaderView>
+#include <QLineEdit>
 #include "motor_angle_viewer.h"
 #include <QTimer>
 
@@ -11,13 +12,15 @@ class QVBoxLayout;
 class QLabel;
 class QComboBox;
 class QPushButton;
-class QLineEdit;
 
 class MoveWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit MoveWidget(QWidget *parent = nullptr);
+
+public slots:
+    void setSelectedMotor(const QString& id, const QString& nickname);
 
 private:
     void setupUI();
@@ -35,6 +38,9 @@ private:
     MotorAngleViewer* angleViewer;
     QTimer* rotationTimer;
     double currentAngle;
+
+    QLabel* id_label;
+    QLabel* name_label;
 
 private slots:
     void updateAngle();

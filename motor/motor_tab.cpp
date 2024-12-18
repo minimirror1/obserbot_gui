@@ -21,10 +21,15 @@ void MotorTab::setupUI()
     QVBoxLayout* leftLayout = new QVBoxLayout(leftWidget);
     leftLayout->setContentsMargins(0, 0, 0, 0);
     
-    MotorSelectWidget* motorSelectWidget = new MotorSelectWidget(this);
-    leftLayout->addWidget(motorSelectWidget);
-    
     moveWidget = new MoveWidget(this);
+    MotorSelectWidget* motorSelectWidget = new MotorSelectWidget(this);
+    
+    for(auto* box : motorSelectWidget->getMotorBoxes()) {
+        connect(box, &MotorSelectBox::motorSelected,
+                moveWidget, &MoveWidget::setSelectedMotor);
+    }
+    
+    leftLayout->addWidget(motorSelectWidget);
     
     splitter->addWidget(leftWidget);
     splitter->addWidget(moveWidget);

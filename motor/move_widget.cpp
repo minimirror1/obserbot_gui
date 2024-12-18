@@ -49,17 +49,17 @@ void MoveWidget::createIdAndNameSection()
     idBox->setFixedWidth(80);
     idBox->setFixedHeight(60);
     QHBoxLayout* idBoxLayout = new QHBoxLayout(idBox);
-    QLabel* idLabel = new QLabel("3", this);
-    idLabel->setAlignment(Qt::AlignCenter);
-    idBoxLayout->addWidget(idLabel);
+    id_label = new QLabel("", this);
+    id_label->setAlignment(Qt::AlignCenter);
+    idBoxLayout->addWidget(id_label);
     
     // Name 섹션
     QGroupBox* nameBox = new QGroupBox("Name", this);
     nameBox->setFixedHeight(60);
     QHBoxLayout* nameBoxLayout = new QHBoxLayout(nameBox);
-    QLabel* nameLabel = new QLabel("Arm1", this);
-    nameLabel->setAlignment(Qt::AlignCenter);
-    nameBoxLayout->addWidget(nameLabel);
+    name_label = new QLabel("", this);
+    name_label->setAlignment(Qt::AlignCenter);
+    nameBoxLayout->addWidget(name_label);
     
     idLayout->addWidget(idBox, 1);
     idLayout->addWidget(nameBox, 3);
@@ -146,4 +146,10 @@ void MoveWidget::updateAngle()
         currentAngle = 0;
     }
     angleViewer->setAngle(currentAngle);
+}
+
+void MoveWidget::setSelectedMotor(const QString& id, const QString& nickname)
+{
+    id_label->setText(id);
+    name_label->setText(nickname);
 }

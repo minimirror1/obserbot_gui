@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QDebug>
 
 MotorSelectBox::MotorSelectBox(const QString& id, const QString& nickname, QWidget *parent)
     : QWidget(parent)
@@ -50,13 +51,23 @@ void MotorSelectBox::updatePosition(double position)
 void MotorSelectBox::setSelected(bool selected)
 {
     is_selected = selected;
-    update();  // 위젯 다시 그리기
+    
+    // 선택 상태에 따라 스타일 변경
+    if (is_selected) {
+        setStyleSheet("background-color: #c0d0ff; border: 2px solid blue;");
+    } else {
+        setStyleSheet("background-color: #e8e8e8; border: 1px solid #999;");
+    }
+    
+    qDebug() << "setSelected called:" << motor_id << "selected:" << is_selected;
+    update();  // 위젯 강제 업데이트
 }
 
 void MotorSelectBox::mousePressEvent(QMouseEvent* event)
 {
     if (event->button() == Qt::LeftButton) {
         emit clicked(this);
+        emit motorSelected(motor_id, motor_nickname);
     }
     QWidget::mousePressEvent(event);
 }
@@ -67,7 +78,8 @@ void MotorSelectBox::paintEvent(QPaintEvent* event)
     
     if (is_selected) {
         QPainter painter(this);
-        painter.setPen(QPen(Qt::blue, 2));
-        painter.drawRect(1, 1, width()-2, height()-2);
+        painter.setPen(QPen(Qt::blue, 3));  // 테두리 두께를 3픽셀로 증가
+        painter.drawRect(0, 0, width()-1, height()-1);
+        qDebug() << "Drawing selected border for:" << motor_id;
     }
 } 

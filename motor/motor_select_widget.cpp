@@ -30,11 +30,17 @@ MotorSelectWidget::MotorSelectWidget(QWidget *parent) : QWidget(parent)
         int row = i / columns;
         int col = i % columns;
         grid_layout->addWidget(motor_boxes[i], row, col);
+        
+        // clicked 시그널 연결
+        connect(motor_boxes[i], &MotorSelectBox::clicked,
+                this, &MotorSelectWidget::handleBoxSelection);
+                
     }
     
     scroll_area->setWidget(scroll_content);
     scroll_area->setWidgetResizable(true);
-    main_layout->addWidget(scroll_area);
+    main_layout->addWidget(scroll_area);    
+
 }
 
 void MotorSelectWidget::loadMotorInfo()
@@ -73,11 +79,11 @@ void MotorSelectWidget::updateGridLayout()
 
     // 각 모터 박스의 기본 너비
     const int box_width = 100;
-    // 스크롤 영역의 너비를 기준으로 최적의 컬럼 수 계산
+    // 스크롤 영의 너비를 기준으로 최적의 컬럼 수 계산
     int available_width = this->width() - 30; // 스크롤바 여유 공간 고려
     int columns = qMax(1, available_width / box_width);
     
-    // 그리드 ���이아웃 재구성
+    // 그리드 이아웃 재구성
     QGridLayout* grid_layout = qobject_cast<QGridLayout*>(
         ((QWidget*)motor_boxes[0]->parent())->layout());
     
@@ -94,4 +100,16 @@ void MotorSelectWidget::updateGridLayout()
             grid_layout->addWidget(motor_boxes[i], row, col);
         }
     }
+}
+
+void MotorSelectWidget::handleBoxSelection(MotorSelectBox* selected_box)
+{
+    // 이전에 선택된 박스가 있다면 선택 해제
+    if (current_selected_box && current_selected_box != selected_box) {
+        current_selected_box->setSelected(false);
+    }
+    
+    // 새로운 박스 선택
+    current_selected_box = selected_box;
+    selected_box->setSelected(true);
 }
