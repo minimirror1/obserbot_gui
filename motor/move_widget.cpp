@@ -47,7 +47,7 @@ void MoveWidget::createIdAndNameSection()
     // ID 섹션
     QGroupBox* idBox = new QGroupBox("ID", this);
     idBox->setFixedWidth(80);
-    idBox->setFixedHeight(50);
+    idBox->setFixedHeight(60);
     QHBoxLayout* idBoxLayout = new QHBoxLayout(idBox);
     QLabel* idLabel = new QLabel("3", this);
     idLabel->setAlignment(Qt::AlignCenter);
@@ -55,7 +55,7 @@ void MoveWidget::createIdAndNameSection()
     
     // Name 섹션
     QGroupBox* nameBox = new QGroupBox("Name", this);
-    nameBox->setFixedHeight(50);
+    nameBox->setFixedHeight(60);
     QHBoxLayout* nameBoxLayout = new QHBoxLayout(nameBox);
     QLabel* nameLabel = new QLabel("Arm1", this);
     nameLabel->setAlignment(Qt::AlignCenter);
@@ -71,7 +71,7 @@ void MoveWidget::createIdAndNameSection()
 void MoveWidget::createMotorAngleViewer()
 {
     QGroupBox* angleBox = new QGroupBox("Angle Viewer", this);
-    angleBox->setFixedHeight(120);
+    angleBox->setFixedHeight(130);
     
     QHBoxLayout* angleLayout = new QHBoxLayout(angleBox);
 
