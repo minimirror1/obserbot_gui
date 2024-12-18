@@ -1,0 +1,39 @@
+# Qt Creator 관련
+*.user
+*.autosave
+CMakeLists.txt.user*
+
+# 빌드 디렉토리
+build/
+debug/
+release/
+bin/
+out/
+
+# CMake 생성 파일
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+Makefile
+*.cmake
+
+# IDE 설정
+.idea/
+.vscode/
+.vs/
+
+# 컴파일된 바이너리/라이브러리
+*.o
+*.obj
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+*.exe
+
+# 임시 파일
+*.swp
+*~
+.DS_Store
