@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "dashboard_tab.h"
+#include "dashboard/dashboard_tab.h"
 #include "motor_tab.h"
 #include "sensor_tab.h"
 

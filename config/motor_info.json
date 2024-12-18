@@ -1,0 +1,58 @@
+[
+    {
+        "id": "1",
+        "nickname": "Left Wheel"
+    },
+    {
+        "id": "2",
+        "nickname": "Right Wheel"
+    },
+    {
+        "id": "3",
+        "nickname": "Camera Pan"
+    },
+    {
+        "id": "4",
+        "nickname": "Camera Tilt"
+    },
+    {
+        "id": "5",
+        "nickname": "Arm Base"
+    },
+    {
+        "id": "6",
+        "nickname": "Arm Elbow"
+    },
+    {
+        "id": "7",
+        "nickname": "Arm Wrist"
+    },
+    {
+        "id": "8",
+        "nickname": "Gripper"
+    },
+    {
+        "id": "9",
+        "nickname": "Head Rotation"
+    },
+    {
+        "id": "10",
+        "nickname": "Waist Joint"
+    },
+    {
+        "id": "11",
+        "nickname": "Left Shoulder"
+    },
+    {
+        "id": "12",
+        "nickname": "Right Shoulder"
+    },
+    {
+        "id": "13",
+        "nickname": "Base Rotation"
+    },
+    {
+        "id": "14",
+        "nickname": "Tool Attachment"
+    }
+] 
