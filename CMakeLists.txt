@@ -17,8 +17,6 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        motor_tab.cpp
-        motor_tab.h
         sensor_tab.cpp
         sensor_tab.h
         dashboard/dashboard_tab.cpp
@@ -33,6 +31,14 @@ set(PROJECT_SOURCES
         dashboard/motor_status_box.h
         dashboard/control_widget.cpp
         dashboard/control_widget.h
+        motor/motor_tab.cpp
+        motor/motor_tab.h
+        motor/move_widget.cpp
+        motor/move_widget.h
+        motor/motor_select_box.cpp
+        motor/motor_select_box.h
+        motor/motor_select_widget.cpp
+        motor/motor_select_widget.h
 )
 
 # 먼저 실행 파일 타겟 생성

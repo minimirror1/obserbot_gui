@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "dashboard/dashboard_tab.h"
-#include "motor_tab.h"
+#include "motor/motor_tab.h"
 #include "sensor_tab.h"
 
 MainWindow::MainWindow(QWidget *parent)
