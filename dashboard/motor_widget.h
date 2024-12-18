@@ -11,9 +11,13 @@ class MotorWidget : public QWidget
 public:
     explicit MotorWidget(QWidget *parent = nullptr);
 
+protected:
+    void resizeEvent(QResizeEvent* event) override;
+
 private:
     void loadMotorInfo();  // JSON 파일에서 모터 정보 로드
     QVector<MotorStatusBox*> motor_boxes;  // 모터 상태 박스들
+    void updateGridLayout();
 };
 
 #endif // MOTOR_WIDGET_H 

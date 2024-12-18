@@ -59,4 +59,39 @@ void MotorWidget::loadMotorInfo()
         motor_boxes.append(box);
         qDebug() << "Loaded motor: " << id << " - " << nickname;
     }
+}
+
+void MotorWidget::resizeEvent(QResizeEvent* event)
+{
+    QWidget::resizeEvent(event);
+    updateGridLayout();
+}
+
+void MotorWidget::updateGridLayout()
+{
+    if (motor_boxes.isEmpty()) return;
+
+    // 각 모터 박스의 기본 너비 (예: 250px)
+    const int box_width = 100;
+    // 스크롤 영역의 너비를 기준으로 최적의 컬럼 수 계산
+    int available_width = this->width() - 30; // 스크롤바 여유 공간 고려
+    int columns = qMax(1, available_width / box_width);
+    
+    // 그리드 레이아웃 재구성
+    QGridLayout* grid_layout = qobject_cast<QGridLayout*>(
+        ((QWidget*)motor_boxes[0]->parent())->layout());
+    
+    if (grid_layout) {
+        // 기존 위젯들을 그리드에서 제거
+        for (auto* box : motor_boxes) {
+            grid_layout->removeWidget(box);
+        }
+        
+        // 새로운 컬럼 수로 재배치
+        for(int i = 0; i < motor_boxes.size(); ++i) {
+            int row = i / columns;
+            int col = i % columns;
+            grid_layout->addWidget(motor_boxes[i], row, col);
+        }
+    }
 } 
