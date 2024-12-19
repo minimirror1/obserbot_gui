@@ -18,7 +18,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void onAdminActionTriggered();
+    void toggleAdminMode(bool checked);
+
 private:
     Ui::MainWindow *ui;
+    QTabWidget* tabWidget;
+    QWidget* adminTab;
+    bool isAdminMode = false;
+    const QString adminPassword = "1234";
+    QAction* adminAction;
 };
 #endif // MAINWINDOW_H
